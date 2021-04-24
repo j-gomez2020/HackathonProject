@@ -1,5 +1,21 @@
 @import './variables.scss';
 
+.hero-img{
+    margin: auto;
+    padding: 3rem;
+}
+
 .hero{
-    background-color: $light-blue;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    height: 100vh;
+    width: 50%;
+    align-items: flex-start;
+
+    .content{
+        padding: 0 7rem;
+        margin: auto;
+    }
 }

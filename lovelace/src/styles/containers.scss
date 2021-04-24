@@ -1,8 +1,10 @@
 .row{
     display: flex;
+    @media(max-width: 600px){
+        flex-direction: column;
+    }
 }
 
 .col{
-    display: flex;
-    flex-direction: column;
+    display: inline-flex;
 }
