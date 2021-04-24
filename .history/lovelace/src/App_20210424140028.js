@@ -4,22 +4,14 @@ import { BrowserRouter as Router,
   Link
 } from "react-router-dom";
 import Landing from './components/Landing';
-import Steps from './components/Steps';
-import Results from './components/Results';
-
 function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
+        <Route path="/">
           <Landing/>
         </Route>
-        <Route path="/steps">
-          <Steps/>
-        </Route>
-        <Route path="/results">
-          <Results/>
-        </Route>
+        <Route path="/step"
       </Switch>
     </Router>
   );

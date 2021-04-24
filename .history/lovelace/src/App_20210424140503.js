@@ -5,7 +5,6 @@ import { BrowserRouter as Router,
 } from "react-router-dom";
 import Landing from './components/Landing';
 import Steps from './components/Steps';
-import Results from './components/Results';
 
 function App() {
   return (
