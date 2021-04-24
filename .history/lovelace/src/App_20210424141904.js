@@ -6,7 +6,7 @@ import { BrowserRouter as Router,
 import Landing from './components/Landing';
 import Steps from './components/Steps';
 import Results from './components/Results';
-import './styles/app.scss';
+
 
 function App() {
   return (

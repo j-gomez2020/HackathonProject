@@ -1,4 +1,5 @@
 import React from 'react';
+import { Row, Col } from 'antd';
 import { Typography } from 'antd';
 
 const { Title } = Typography;
@@ -6,12 +7,12 @@ const { Title } = Typography;
 const Landing = () => {
     return(
         <div className="row">
-            <div>
+            <div className="col">
                 <Title>Mortgage estimates for this generation.</Title>
             </div>
-            <div className="hero">
+            <Col span={12} className="hero">
                 <Title>This is where image goes</Title>
-            </div>
+            </Col>
         </div>
     )
 }

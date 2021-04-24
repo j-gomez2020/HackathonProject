@@ -1,18 +1,19 @@
 import React from 'react';
+import { Row, Col } from 'antd';
 import { Typography } from 'antd';
 
 const { Title } = Typography;
 
 const Landing = () => {
     return(
-        <div className="row">
-            <div>
+        <Row span={24}>
+            <Col >
                 <Title>Mortgage estimates for this generation.</Title>
-            </div>
-            <div className="hero">
+            </Col>
+            <Col  className="hero">
                 <Title>This is where image goes</Title>
-            </div>
-        </div>
+            </Col>
+        </Row>
     )
 }
 
