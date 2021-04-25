@@ -10,7 +10,7 @@ const HouseInfo = () => {
     }
 
     return(
-        <>
+        <div className="step-container">
             <form>
                 <label for="homePrice"  className="input-label">Home Price</label>
                 <input name="homePrice" type="text"></input>
@@ -42,7 +42,7 @@ const HouseInfo = () => {
                 <input name="address" type="text"></input>
             </form>
             <Navigation nextStep={nextStep} prevStep={prevStep}/>
-        </>
+        </div>
     )
 }
 

@@ -26,6 +26,12 @@
         background-color: $primary-green;
         color: white;
     }
+    &.disabled{
+        color: $light-gray;
+        background-color: white;
+        border: solid 2px $light-gray;
+        cursor: not-allowed;
+    }
 }
 
 .radio{

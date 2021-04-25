@@ -9,7 +9,7 @@ const RentalInfo = () => {
     }
 
     return(
-        <>
+        <div className="step-container">
             <form>
                 <label for="rentCost" className="input-label">Monthly Rent</label>
                 <input name="rentCost" type="text"></input>
@@ -37,7 +37,7 @@ const RentalInfo = () => {
                 </> : ''}
             </form>
             <Navigation nextStep={nextStep}/>
-        </>
+        </div>
     )
 }
 

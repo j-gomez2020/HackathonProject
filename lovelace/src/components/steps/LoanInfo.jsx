@@ -6,7 +6,7 @@ const LoanInfo = () => {
     const [selected, setSelected] = useState();
     const prevStep = '/steps/2';
     return(
-        <>
+        <div className="step-container">
             <form>
                 <label for="loanTerm" className="input-label">Loan Term in Years</label>
                 <div className="row">
@@ -25,7 +25,7 @@ const LoanInfo = () => {
             </form>
 
             <Navigation prevStep={prevStep} />
-        </>
+        </div>
     )
 }
 
