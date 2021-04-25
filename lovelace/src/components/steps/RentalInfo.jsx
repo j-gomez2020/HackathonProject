@@ -17,7 +17,6 @@ const RentalInfo = ({setRentalInfo}) => {
             monthlyRent,
             utilCost
         });
-        console.log('submitting form')
     }
 
     return(
@@ -42,7 +41,7 @@ const RentalInfo = ({setRentalInfo}) => {
                         </span>
                     </label>
                 </div>
-                { util === 'yes' ? 
+                { util === 'no' ? 
                 <>
                     <label for="utilitiesCost" className="input-label">Monthly Utilities Cost</label>
                     <input name="utilitiesCost" type="text"></input>
