@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
+import Navigation from '../Navigation';
 
 const RentalInfo = () => {
     const [util, setUtil] = useState();
-
+    const nextStep = '/steps/2';
     const toggleUtilities = (e) => {
         setUtil(e.target.value); //track util status to conditionally render util cost input
     }
@@ -10,21 +11,32 @@ const RentalInfo = () => {
     return(
         <>
             <form>
-                <label for="rentCost">Monthly Rent</label>
+                <label for="rentCost" className="input-label">Monthly Rent</label>
                 <input name="rentCost" type="text"></input>
-                <label for="utilities">Are utilities included?</label>
+                <label for="utilities" className="input-label">Are utilities included?</label>
                 <div onChange={toggleUtilities}>
-                    <input type="radio" name="utilities" value="yes" id="yes"></input>
-                    <label for="yes">Yes</label>
-                    <input type="radio" name="utilities" value="no" id="no"></input>
-                    <label for="no">No</label>
+                    <label className="radio">
+                        <span className="radio__input">
+                            <input type="radio" name="utilities" value="yes"/>
+                            <span className="radio__control"></span>
+                            Yes
+                        </span>
+                    </label>
+                    <label className="radio">
+                        <span className="radio__input">
+                            <input type="radio" name="utilities" value="no"/>
+                            <span className="radio__control"></span>
+                            No
+                        </span>
+                    </label>
                 </div>
                 { util === 'yes' ? 
                 <>
-                    <label for="utilitiesCost">Monthly Utilities Cost</label>
+                    <label for="utilitiesCost" className="input-label">Monthly Utilities Cost</label>
                     <input name="utilitiesCost" type="text"></input>
                 </> : ''}
             </form>
+            <Navigation nextStep={nextStep}/>
         </>
     )
 }

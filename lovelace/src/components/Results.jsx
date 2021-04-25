@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 const Results = () => {
+    const [loading, setLoading] = useState(true);
+
+
     return(
-        <h1>Results page</h1>
+        <>
+            {loading ? <h1>Loading</h1> : <h1>Results page</h1>}
+        </>
+        
     )
 }
 

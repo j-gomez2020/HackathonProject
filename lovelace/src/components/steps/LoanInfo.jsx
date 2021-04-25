@@ -1,19 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Navigation from '../Navigation';
 
 const LoanInfo = () => {
+
+    const [selected, setSelected] = useState();
+    const prevStep = '/steps/2';
     return(
         <>
             <form>
-                <label for="loanTerm">Loan Term in Years</label>
-                <input type="radio" name="loanTerm" value="10"></input>
-                <label for="10">10</label>
-                <input type="radio" name="loanTerm" value="15"></input>
-                <label for="15">15</label>
-                <input type="radio" name="loanTerm" value="30"></input>
-                <label for="30">30</label>
-                <label for="interestRate">Interest Rate</label>
+                <label for="loanTerm" className="input-label">Loan Term in Years</label>
+                <div className="row">
+                    <div className="dot">
+                        <span>10</span>
+                    </div>
+                    <div className="dot">
+                        <span>15</span>
+                    </div>
+                    <div className="dot">
+                        <span>30</span>
+                    </div>
+                </div>
+                <label for="interestRate" className="input-label">Interest Rate</label>
                 <input type="text"></input>
             </form>
+
+            <Navigation prevStep={prevStep} />
         </>
     )
 }

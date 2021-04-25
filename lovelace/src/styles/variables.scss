@@ -1,3 +1,5 @@
 $light-blue: #EAF5FF;
 $font-dark: #29313C;
 $primary-green: #00B77E;
+$light-gray: lighten($font-dark, 50%);
+$font-lighter: lighten($font-dark, 20%);

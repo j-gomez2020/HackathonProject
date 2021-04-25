@@ -8,3 +8,21 @@
 .col{
     display: inline-flex;
 }
+
+.navigation-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.progress-bar-container{
+    display: flex;
+    margin: auto;
+}
+
+.bar{
+    background-color: $light-gray;
+    width: 50px;
+    margin: 0 20px;
+}

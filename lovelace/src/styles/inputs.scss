@@ -1,0 +1,44 @@
+@import './variables.scss';
+
+input[type="text"]{
+    padding: 1rem;
+    border: solid 1px $light-gray;
+    border-radius: 5px;
+    &:focus {
+        border: solid 2px $primary-green;
+    }
+}
+
+.input-label{
+    display: block;
+    font-weight: bold;
+    font-size: .75rem;
+    margin-bottom: .5rem;
+    margin-top: 1.5rem;
+    color: $font-lighter;
+}
+
+.dot{
+    padding: 1rem;
+    margin: 1rem;
+    background-color: $light-gray;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    position: relative;
+    span{
+        position: absolute;
+        margin-top: .25rem;
+        margin-left: .3rem;
+        color: $font-dark;
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+    &:hover, .selected{
+        background-color: $primary-green;
+        cursor: pointer;
+        span{
+            color: white;
+        }
+    }
+}

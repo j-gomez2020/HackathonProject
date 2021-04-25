@@ -11,7 +11,7 @@ const Landing = () => {
                     <p className="lead">
                         Compare monthly rental payments to FHA, VA, and low-down-payment mortgage estimates to see how much you’d really be saving.
                     </p>
-                    <Link to="/steps" className="button primary">Get Started</Link>
+                    <Link to="/steps/1" className="button primary">Get Started</Link>
                 </div>
             </div>
             <div className="col hero-img">

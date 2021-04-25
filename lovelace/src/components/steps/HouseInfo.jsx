@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
+import Navigation from '../Navigation';
 
 const HouseInfo = () => {
     const [hoa, setHOA] = useState();
-
+    const nextStep = '/steps/3';
+    const prevStep = '/steps/1';
     const toggleHOA = (e) => {
         setHOA(e.target.value); //track HOA status to conditionally render HOA cost input
     }
@@ -10,25 +12,36 @@ const HouseInfo = () => {
     return(
         <>
             <form>
-                <label for="homePrice">Home Price</label>
+                <label for="homePrice"  className="input-label">Home Price</label>
                 <input name="homePrice" type="text"></input>
-                <label for="downPayment">Down Payment</label>
+                <label for="downPayment" className="input-label">Down Payment</label>
                 <input name="downPayment" type="text"></input>
-                <label for="hoa">Is there an HOA?</label>
+                <label for="hoa" className="input-label">Is there an HOA?</label>
                 <div onChange={toggleHOA}>
-                    <input type="radio" name="hoa" value="yes" id="yes"></input>
-                    <label for="yes">Yes</label>
-                    <input type="radio" name="hoa" value="no" id="no"></input>
-                    <label for="no">No</label>
+                    <label className="radio">
+                        <span className="radio__input">
+                            <input type="radio" name="hoa" value="yes"/>
+                            <span className="radio__control"></span>
+                            Yes
+                        </span>
+                    </label>
+                    <label className="radio">
+                        <span className="radio__input">
+                            <input type="radio" name="hoa" value="no"/>
+                            <span className="radio__control"></span>
+                            No
+                        </span>
+                    </label>
                 </div>
                 { hoa === 'yes' ? 
                 <>
-                    <label for="hoaCost">Monthly HOA Dues</label>
+                    <label for="hoaCost" className="input-label">Monthly HOA Dues</label>
                     <input name="hoaCost" type="text"></input>
                 </> : ''}
-                <label for="downPayment">Address</label>
-                <input name="downPayment" type="text"></input>
+                <label for="address" className="input-label">Address</label>
+                <input name="address" type="text"></input>
             </form>
+            <Navigation nextStep={nextStep} prevStep={prevStep}/>
         </>
     )
 }
