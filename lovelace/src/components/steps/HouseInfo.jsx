@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Navigation from '../Navigation';
-import Autocomplete from "react-google-autocomplete";
 import PlacesAutocomplete from 'react-google-places-autocomplete';
-import axios from 'axios';
 
 
 const HouseInfo = ({setHouseInfo}) => {
@@ -20,9 +18,19 @@ const HouseInfo = ({setHouseInfo}) => {
         setHOA(e.target.value); //track HOA status to conditionally render HOA cost input
     }
 
-    const handleAddressSearch = (e) => {
-        let query = e.target.value;
-        setAddress(query);
+    const inputStyles = {
+        control: styles => ({
+            ...styles,
+            padding: '.35rem',
+            border: 'solid 1px #a4b0c0',
+            borderRadius: '5px',
+            maxWidth: '50%'
+        }),
+
+        menu: styles => ({
+            ...styles,
+            maxWidth: '50%'
+        })
     }
 
     const handleFormSubmit = () => {
@@ -66,10 +74,15 @@ const HouseInfo = ({setHouseInfo}) => {
                     <input name="hoaCost" type="text" onChange={(e) => setHoaCost(parseInt(e.target.value))}></input>
                 </> : ''}
                 <label for="streetAdd" className="input-label">Address</label>
-                <PlacesAutocomplete autocomplete="off" className="input" apiKey={apiKey} apiOptions={{ language: 'en', region: 'us' }}
+                <PlacesAutocomplete 
+                    autocomplete="off" 
+                    apiKey={apiKey} 
+                    apiOptions={{ language: 'en', region: 'us' }}
                     selectProps={{
                     address,
                     onChange: setAddress,
+                    placeholder: '',
+                    styles: inputStyles
                   }}
                 />
             </div>
