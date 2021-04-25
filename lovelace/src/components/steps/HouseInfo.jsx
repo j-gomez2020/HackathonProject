@@ -17,6 +17,10 @@ const HouseInfo = ({setHouseInfo}) => {
     const handleAddressSearch = (e) => {
         let query = e.target.value;
         setAddress(query);
+        // i am here
+
+
+
     }
 
     const handleFormSubmit = () => {
