@@ -1,30 +1,38 @@
-housePrice = 400000;
-interestRate = 3.25;
-monthlyInterestRate = interestRate/12;
-paymentYears = 30
-monthlyHoa = 500
-monthlyInsurance = 200
-downPayment = 200000
-totalMortgage = housePrice - downPayment
-fixedMonthlyMortgagePayment = 
-(totalMortgage * (monthlyInterestRate*(1+monthlyInterestRate)^(paymentYears*12)))/
-    ((1+monthlyInterestRate)^(paymentYears*12))
+let housePrice = 400000;
+let interestRate = 3.25;
+let monthlyInterestRate = interestRate/12;
+let paymentYears = 30;
+let monthlyHoa = 500;
+let monthlyInsurance = 200;
+let downPayment = 200000;
+let totalMortgage = housePrice - downPayment;
+let fixedMonthlyMortgagePayment = (totalMortgage * (monthlyInterestRate*(1+monthlyInterestRate)^(paymentYears*12))) / ((1+monthlyInterestRate)^(paymentYears*12))
+
 const calculateMonthlyPayment = (fixedMonthlyMortgagePayment, housePrice,
-     monthlyHoa, monthlyInsurance) => {fixedMonthlyMortgagePayment
-         + ((housePrice)*1.2/12) + monthlyHoa + monthlyInsurance}
+     monthlyHoa, monthlyInsurance) => {
+         const result = fixedMonthlyMortgagePayment + ((housePrice)*1.2/12) + monthlyHoa + monthlyInsurance;
+         console.log(result)
+         return result;
+    }
 
-calculateMonthlyPayment = (fixedMonthlyMortgagePayment, housePrice,
-            monthlyHoa, monthlyInsurance);
+calculateMonthlyPayment(fixedMonthlyMortgagePayment, housePrice, monthlyHoa, monthlyInsurance);
 
-monthlyCurrentRent = 25000;
-yearStay = 5;
-inflationRate = 1.04;
+let monthlyCurrentRent = 25000;
+let yearStay = 5;
+let inflationRate = 1.04;
 
-const newRentPrice = (monthlyCurrentRent, 
-    inflationRate, yearStay) => {monthlyCurrentRent*(1+inflationRate)^(yearStay)}
+const calculateNewRentPrice = (monthlyCurrentRent, 
+    inflationRate, yearStay) => { 
+        const result = monthlyCurrentRent*(1+inflationRate)^(yearStay);
+        return result;
+}
 
-annualRentPrice = 12*monthlyCurrentRent*(1+inflationRate)^(yearStay)
-annualPaymentMinusAnnualHomeEquityIncrease = 
+calculateNewRentPrice(monthlyCurrentRent, inflationRate, yearStay);
+
+
+const annualRentPrice = 12*monthlyCurrentRent*(1+inflationRate)^(yearStay)
+
+const annualPaymentMinusAnnualHomeEquityIncrease = 
 (calculateMonthlyPayment*12) - [housePrice*(1+inflationRate)^(yearStay) - housePrice*(1
     +inflationRate)^(yearStay - 1)]
 
