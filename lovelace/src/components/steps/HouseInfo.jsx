@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import Navigation from '../Navigation';
+import Autocomplete from "react-google-autocomplete";
+
 
 const HouseInfo = ({setHouseInfo}) => {
     const [hoa, setHOA] = useState();
@@ -64,6 +66,11 @@ const HouseInfo = ({setHouseInfo}) => {
                 </> : ''}
                 <label for="address" className="input-label">Address</label>
                 <input name="address" type="text" onChange={handleAddressSearch}></input>
+                <Autocomplete
+                    apiKey={myapiKey}
+                    onPlaceSelected={(e)=>setAddress(e.target.value)}
+                    options={{types:["(address)"], componentRestrictions:{country:"us" }}
+                />
             </form>
             <Navigation nextStep={nextStep} prevStep={prevStep} submitAction={handleFormSubmit}/>
         </div>
