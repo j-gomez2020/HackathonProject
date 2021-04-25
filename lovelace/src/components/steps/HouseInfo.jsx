@@ -1,19 +1,31 @@
 import React, {useState} from 'react';
 import Navigation from '../Navigation';
 
-const HouseInfo = () => {
+const HouseInfo = ({setHouseInfo}) => {
     const [hoa, setHOA] = useState();
+    const [hoaCost, setHoaCost] = useState(0);
+    const [homePrice, setHomePrice] = useState();
+    const [downPayment, setDownPayment] = useState();
+    const [address, setAddress] = useState();
     const nextStep = '/steps/3';
     const prevStep = '/steps/1';
-    
+
     const toggleHOA = (e) => {
         setHOA(e.target.value); //track HOA status to conditionally render HOA cost input
     }
 
-
     const handleAddressSearch = (e) => {
         let query = e.target.value;
-        //TODO
+        setAddress(query);
+    }
+
+    const handleFormSubmit = () => {
+        setHouseInfo({
+            homePrice,
+            downPayment,
+            hoaCost,
+            address
+        })
     }
 
 
@@ -21,9 +33,9 @@ const HouseInfo = () => {
         <div className="step-container">
             <form>
                 <label for="homePrice"  className="input-label">Home Price</label>
-                <input name="homePrice" type="text"></input>
+                <input name="homePrice" type="text" onChange={(e) => setHomePrice(parseInt(e.target.value))}></input>
                 <label for="downPayment" className="input-label">Down Payment</label>
-                <input name="downPayment" type="text"></input>
+                <input name="downPayment" type="text" onChange={(e) => setDownPayment(parseInt(e.target.value))}></input>
                 <label for="hoa" className="input-label">Is there an HOA?</label>
                 <div onChange={toggleHOA}>
                     <label className="radio">
@@ -44,12 +56,12 @@ const HouseInfo = () => {
                 { hoa === 'yes' ? 
                 <>
                     <label for="hoaCost" className="input-label">Monthly HOA Dues</label>
-                    <input name="hoaCost" type="text"></input>
+                    <input name="hoaCost" type="text" onChange={(e) => setHoaCost(parseInt(e.target.value))}></input>
                 </> : ''}
                 <label for="address" className="input-label">Address</label>
                 <input name="address" type="text" onChange={handleAddressSearch}></input>
             </form>
-            <Navigation nextStep={nextStep} prevStep={prevStep}/>
+            <Navigation nextStep={nextStep} prevStep={prevStep} submitAction={handleFormSubmit}/>
         </div>
     )
 }

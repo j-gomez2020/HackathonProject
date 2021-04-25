@@ -1,11 +1,23 @@
 import React, {useState} from 'react';
 import Navigation from '../Navigation';
 
-const RentalInfo = () => {
+const RentalInfo = ({setRentalInfo}) => {
     const [util, setUtil] = useState();
+    const [monthlyRent, setMonthlyRent] = useState();
+    const [utilCost, setUtilCost] = useState(0);
+
     const nextStep = '/steps/2';
+
     const toggleUtilities = (e) => {
         setUtil(e.target.value); //track util status to conditionally render util cost input
+    }
+
+    const handleFormSubmit = () => {
+        setRentalInfo({
+            monthlyRent,
+            utilCost
+        });
+        console.log('submitting form')
     }
 
     return(
@@ -36,7 +48,7 @@ const RentalInfo = () => {
                     <input name="utilitiesCost" type="text"></input>
                 </> : ''}
             </form>
-            <Navigation nextStep={nextStep}/>
+            <Navigation nextStep={nextStep} submitAction={handleFormSubmit}/>
         </div>
     )
 }

@@ -14,8 +14,10 @@ import HouseInfo from './components/steps/HouseInfo';
 import './styles/app.scss';
 
 function App() {
-  const [monthlyRent, setMonthlyRent] = useState();
-  const [util, setUtil] = useState(0);
+  const [rentalInfo, setRentalInfo] = useState();
+  const [houseInfo, setHouseInfo] = useState();
+  const [loanInfo, setLoanInfo] = useState();
+
   const [homePrice, setHomePrice] = useState();
   const [downPayment, setDownPayment] = useState();
   const [hoaDues, setHoaDues] = useState(0);
@@ -31,13 +33,13 @@ function App() {
           <Landing/>
         </Route>
         <Route path="/steps/1">
-          <RentalInfo/>
+          <RentalInfo setRentalInfo={setRentalInfo}/>
         </Route>
         <Route path="/steps/2">
-          <HouseInfo/>
+          <HouseInfo setHouseInfo={setHouseInfo}/>
         </Route>
         <Route path="/steps/3">
-          <LoanInfo/>
+          <LoanInfo setLoanInfo={setLoanInfo}/>
         </Route>
         <Route path="/results">
           <Results/>
