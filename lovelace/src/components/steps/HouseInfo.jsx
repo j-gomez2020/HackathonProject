@@ -12,6 +12,8 @@ const HouseInfo = ({setHouseInfo}) => {
     const nextStep = '/steps/3';
     const prevStep = '/steps/1';
 
+    const myapiKey = 'AIzaSyDMgJ54M0EdN3MHyCGDYT-agiL_N2BXZKA';
+
     const toggleHOA = (e) => {
         setHOA(e.target.value); //track HOA status to conditionally render HOA cost input
     }
@@ -20,9 +22,6 @@ const HouseInfo = ({setHouseInfo}) => {
         let query = e.target.value;
         setAddress(query);
         // i am here
-
-
-
     }
 
     const handleFormSubmit = () => {
@@ -37,7 +36,7 @@ const HouseInfo = ({setHouseInfo}) => {
 
     return(
         <div className="step-container">
-            <form>
+            <div className="">
                 <label for="homePrice"  className="input-label">Home Price</label>
                 <input name="homePrice" type="text" onChange={(e) => setHomePrice(parseInt(e.target.value))}></input>
                 <label for="downPayment" className="input-label">Down Payment</label>
@@ -66,12 +65,15 @@ const HouseInfo = ({setHouseInfo}) => {
                 </> : ''}
                 <label for="address" className="input-label">Address</label>
                 <input name="address" type="text" onChange={handleAddressSearch}></input>
+                {/* 
+                
                 <Autocomplete
                     apiKey={myapiKey}
-                    onPlaceSelected={(e)=>setAddress(e.target.value)}
-                    options={{types:["(address)"], componentRestrictions:{country:"us" }}
+                    onPlaceSelected={(place)=>console.log(place)}
+                    options={{types:["(address)"], componentRestrictions:{country:"us"}}}
                 />
-            </form>
+                 */}
+            </div>
             <Navigation nextStep={nextStep} prevStep={prevStep} submitAction={handleFormSubmit}/>
         </div>
     )
