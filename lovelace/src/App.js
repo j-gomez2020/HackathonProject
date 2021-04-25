@@ -18,13 +18,7 @@ function App() {
   const [houseInfo, setHouseInfo] = useState();
   const [loanInfo, setLoanInfo] = useState();
 
-  const [homePrice, setHomePrice] = useState();
-  const [downPayment, setDownPayment] = useState();
-  const [hoaDues, setHoaDues] = useState(0);
-  const [address, setAddress] = useState();
-  const [loanTerm, setLoanTerm] = useState();
-  const [interestRate, setInterestRate] = useState();
-
+  
 
   return (
     <Router>

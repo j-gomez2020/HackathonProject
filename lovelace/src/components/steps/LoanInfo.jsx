@@ -2,14 +2,14 @@ import React, {useState} from 'react';
 import Navigation from '../Navigation';
 
 const LoanInfo = ({setLoanInfo}) => {
-    const [selected, setSelected] = useState();
+    const [loanTerm, setLoanTerm] = useState();
     const [interestRate, setInterestRate] = useState();
 
     const prevStep = '/steps/2';
 
     const handleFormSubmit = () => {
         setLoanInfo({
-            selected,
+            loanTerm,
             interestRate
         })
     }
@@ -19,13 +19,13 @@ const LoanInfo = ({setLoanInfo}) => {
             <form>
                 <label for="loanTerm" className="input-label">Loan Term in Years</label>
                 <div className="row">
-                    <div className={`dot ${selected === 10 ? 'active' : ''}`} onClick={() => setSelected(10)}>
+                    <div className={`dot ${loanTerm === 10 ? 'active' : ''}`} onClick={() => setLoanTerm(10)}>
                         <span>10</span>
                     </div>
-                    <div className={`dot ${selected === 15 ? 'active' : ''}`} onClick={() => setSelected(15)}>
+                    <div className={`dot ${loanTerm === 15 ? 'active' : ''}`} onClick={() => setLoanTerm(15)}>
                         <span>15</span>
                     </div>
-                    <div className={`dot ${selected === 30 ? 'active' : ''}`} onClick={() => setSelected(30)}>
+                    <div className={`dot ${loanTerm === 30 ? 'active' : ''}`} onClick={() => setLoanTerm(30)}>
                         <span>30</span>
                     </div>
                 </div>
