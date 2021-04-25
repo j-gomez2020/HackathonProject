@@ -16,6 +16,7 @@ const LoanInfo = ({setLoanInfo}) => {
 
     return(
         <div className="step-container">
+            <h2>Enter your loan info: </h2>
             <form>
                 <label for="loanTerm" className="input-label">Loan Term in Years</label>
                 <div className="row">

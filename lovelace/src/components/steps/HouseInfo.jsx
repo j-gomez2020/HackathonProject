@@ -46,7 +46,9 @@ const HouseInfo = ({setHouseInfo}) => {
 
     return(
         <div className="step-container">
-            <div className="">
+            <h2>Enter details about the house: </h2>
+
+            <form>
                 <label for="homePrice"  className="input-label">Home Price</label>
                 <input name="homePrice" type="text" onChange={(e) => setHomePrice(parseInt(e.target.value))}></input>
                 <label for="downPayment" className="input-label">Down Payment</label>
@@ -85,7 +87,7 @@ const HouseInfo = ({setHouseInfo}) => {
                     styles: inputStyles
                   }}
                 />
-            </div>
+            </form>
             <Navigation nextStep={nextStep} prevStep={prevStep} submitAction={handleFormSubmit}/>
         </div>
     )

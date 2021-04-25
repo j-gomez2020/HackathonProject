@@ -21,6 +21,7 @@ const RentalInfo = ({setRentalInfo}) => {
 
     return(
         <div className="step-container">
+            <h2>Enter your rental info: </h2>
             <form>
                 <label for="rentCost" className="input-label">Monthly Rent</label>
                 <input name="rentCost" type="text"></input>
