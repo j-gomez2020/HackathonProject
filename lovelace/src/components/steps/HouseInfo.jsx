@@ -1,6 +1,8 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Navigation from '../Navigation';
 import Autocomplete from "react-google-autocomplete";
+import PlacesAutocomplete from 'react-google-places-autocomplete';
+import axios from 'axios';
 
 
 const HouseInfo = ({setHouseInfo}) => {
@@ -12,7 +14,7 @@ const HouseInfo = ({setHouseInfo}) => {
     const nextStep = '/steps/3';
     const prevStep = '/steps/1';
 
-    const myapiKey = 'AIzaSyDMgJ54M0EdN3MHyCGDYT-agiL_N2BXZKA';
+    const apiKey = 'AIzaSyDMgJ54M0EdN3MHyCGDYT-agiL_N2BXZKA';
 
     const toggleHOA = (e) => {
         setHOA(e.target.value); //track HOA status to conditionally render HOA cost input
@@ -21,7 +23,6 @@ const HouseInfo = ({setHouseInfo}) => {
     const handleAddressSearch = (e) => {
         let query = e.target.value;
         setAddress(query);
-        // i am here
     }
 
     const handleFormSubmit = () => {
@@ -32,6 +33,7 @@ const HouseInfo = ({setHouseInfo}) => {
             address
         })
     }
+    console.log('address', address)
 
 
     return(
@@ -63,16 +65,13 @@ const HouseInfo = ({setHouseInfo}) => {
                     <label for="hoaCost" className="input-label">Monthly HOA Dues</label>
                     <input name="hoaCost" type="text" onChange={(e) => setHoaCost(parseInt(e.target.value))}></input>
                 </> : ''}
-                <label for="address" className="input-label">Address</label>
-                <input name="address" type="text" onChange={handleAddressSearch}></input>
-                {/* 
-                
-                <Autocomplete
-                    apiKey={myapiKey}
-                    onPlaceSelected={(place)=>console.log(place)}
-                    options={{types:["(address)"], componentRestrictions:{country:"us"}}}
+                <label for="streetAdd" className="input-label">Address</label>
+                <PlacesAutocomplete autocomplete="off" className="input" apiKey={apiKey} apiOptions={{ language: 'en', region: 'us' }}
+                    selectProps={{
+                    address,
+                    onChange: setAddress,
+                  }}
                 />
-                 */}
             </div>
             <Navigation nextStep={nextStep} prevStep={prevStep} submitAction={handleFormSubmit}/>
         </div>
