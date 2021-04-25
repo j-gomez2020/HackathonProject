@@ -16,9 +16,19 @@ const calculateMonthlyPayment = (fixedMonthlyMortgagePayment, housePrice,
 calculateMonthlyPayment = (fixedMonthlyMortgagePayment, housePrice,
             monthlyHoa, monthlyInsurance);
 
-currentRent = 300000;
+monthlyCurrentRent = 25000;
 yearStay = 5;
 inflationRate = 1.04;
 
-const newRentPrice = (currentRent, 
-    inflationRate, yearStay) => {currentRent*(1+inflationRate)^(yearStay)}
+const newRentPrice = (monthlyCurrentRent, 
+    inflationRate, yearStay) => {monthlyCurrentRent*(1+inflationRate)^(yearStay)}
+
+annualRentPrice = 12*monthlyCurrentRent*(1+inflationRate)^(yearStay)
+annualPaymentMinusAnnualHomeEquityIncrease = 
+(calculateMonthlyPayment*12) - [housePrice*(1+inflationRate)^(yearStay) - housePrice*(1
+    +inflationRate)^(yearStay - 1)]
+
+// compare that if annualRentPrice > annualPaymentMinusAnnualHomeEquityIncrease
+// by more than 1k, then purchasing a home would be better. If it's the opposite,
+// renting a home would be better. If the two are equal or within $1k of each other
+// then it is a break even and either option would be good
