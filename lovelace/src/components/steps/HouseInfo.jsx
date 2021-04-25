@@ -5,9 +5,17 @@ const HouseInfo = () => {
     const [hoa, setHOA] = useState();
     const nextStep = '/steps/3';
     const prevStep = '/steps/1';
+    
     const toggleHOA = (e) => {
         setHOA(e.target.value); //track HOA status to conditionally render HOA cost input
     }
+
+
+    const handleAddressSearch = (e) => {
+        let query = e.target.value;
+        //TODO
+    }
+
 
     return(
         <div className="step-container">
@@ -39,7 +47,7 @@ const HouseInfo = () => {
                     <input name="hoaCost" type="text"></input>
                 </> : ''}
                 <label for="address" className="input-label">Address</label>
-                <input name="address" type="text"></input>
+                <input name="address" type="text" onChange={handleAddressSearch}></input>
             </form>
             <Navigation nextStep={nextStep} prevStep={prevStep}/>
         </div>
